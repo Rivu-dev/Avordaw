@@ -167,23 +167,39 @@
   /**
    * Navmenu Scrollspy
    */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+  // let navmenulinks = document.querySelectorAll('.navmenu a');
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.querySelectorAll('#navmenu ul li a');
+    var currentPage = window.location.pathname.split('/').pop();
+    if(currentPage === "" || currentPage === "index.html") {
+      currentPage = "index.html";
+    }
+    navLinks.forEach(function(link) {
+      var linkPage = link.getAttribute('href');
+      if(linkPage === currentPage) {
+        link.classList.add('active');
       } else {
-        navmenulink.classList.remove('active');
+        link.classList.remove('active');
       }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+    });
+  });
+
+  // function navmenuScrollspy() {
+  //   navmenulinks.forEach(navmenulink => {
+  //     if (!navmenulink.hash) return;
+  //     let section = document.querySelector(navmenulink.hash);
+  //     if (!section) return;
+  //     let position = window.scrollY + 200;
+  //     if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+  //       document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+  //       navmenulink.classList.add('active');
+  //     } else {
+  //       navmenulink.classList.remove('active');
+  //     }
+  //   })
+  // }
+  // window.addEventListener('load', navmenuScrollspy);
+  // document.addEventListener('scroll', navmenuScrollspy);
 
 })();
