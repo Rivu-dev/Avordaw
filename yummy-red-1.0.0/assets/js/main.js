@@ -12,6 +12,19 @@
   /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      keyboardNavigation: true,
+      closeButton: true,
+      loop: true
+    });
+  });
+
+
+
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
