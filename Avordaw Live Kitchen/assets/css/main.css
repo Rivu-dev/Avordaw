@@ -1313,6 +1313,12 @@ section,
 /*--------------------------------------------------------------
 # Chefs Section
 --------------------------------------------------------------*/
+.chefs .container .row.gy-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
 .chefs .team-member {
   background-color: var(--surface-color);
   box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
@@ -1320,6 +1326,21 @@ section,
   text-align: center;
   border-radius: 5px;
   transition: 0.3s;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .chefs .container .row.gy-4 {
+    justify-content: center;
+    gap: 3rem;
+  }
+  .chefs .team-member {
+    max-width: 400px;
+  }
 }
 
 .chefs .team-member .member-img {
