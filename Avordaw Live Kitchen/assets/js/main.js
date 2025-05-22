@@ -185,6 +185,16 @@
     });
   });
 
+  // Initialize AOS
+document.addEventListener('DOMContentLoaded', function() {
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+  });
+});
+
   // function navmenuScrollspy() {
   //   navmenulinks.forEach(navmenulink => {
   //     if (!navmenulink.hash) return;
